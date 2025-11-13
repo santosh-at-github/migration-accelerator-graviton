@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+assets/
+terraform.tfstate*
+.terraform
+# Virtual Environment
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+targets/*
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+README.md-Backup
+
+# Security - Sensitive files
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+aws-credentials
+.aws/
+secrets/
+*.env
+.env.*
+config.json
+credentials.json
+
+# Terraform sensitive
+*.tfvars
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# Logs and temporary files
+*.log
+logs/
+temp/
+tmp/
+APG Content Guidelines.pdf
+*.drawio.bkp
+
+.kiro/
+.gitlab-ci-local
+.gitlab-ci-local.yml
+
+#ASH scan
+.ash/
