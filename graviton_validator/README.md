@@ -1,6 +1,6 @@
 # Graviton Validator Core Package
 
-Core Python package for the Graviton Compatibility Validator tool. This package provides SBOM parsing, compatibility analysis, runtime testing, and multi-format reporting capabilities.
+Core Python package for the Migration Accelerator for Graviton tool. This package provides SBOM parsing, compatibility analysis, runtime testing, and multi-format reporting capabilities.
 
 ## Package Structure
 

@@ -4,7 +4,7 @@ This directory contains JSON files that define packages explicitly unsupported o
 
 ## Automatic Loading
 
-All JSON files in this directory are automatically loaded when the Graviton Compatibility Validator runs. No additional configuration is required.
+All JSON files in this directory are automatically loaded when the Migration Accelerator for Graviton runs. No additional configuration is required.
 
 ## Current Deny Lists
 

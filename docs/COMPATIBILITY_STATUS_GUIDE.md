@@ -1,6 +1,6 @@
 # Compatibility Status Guide
 
-This guide explains the compatibility status values used throughout the Graviton Compatibility Validator and their meanings.
+This guide explains the compatibility status values used throughout the Migration Accelerator for Graviton and their meanings.
 
 ## Status Values
 

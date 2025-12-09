@@ -1,0 +1,214 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Graviton Compatibility Knowledge Base Schema",
+  "description": "JSON Schema for validating Graviton compatibility knowledge base files",
+  "type": "object",
+  "required": ["software_compatibility"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Metadata about the knowledge base",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of the knowledge base format"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the knowledge base"
+        },
+        "created_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date when the knowledge base was created"
+        },
+        "last_updated": {
+          "type": "string",
+          "format": "date",
+          "description": "Date when the knowledge base was last updated"
+        },
+        "maintainer": {
+          "type": "string",
+          "description": "Organization or person maintaining the knowledge base"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional notes about the knowledge base"
+        }
+      }
+    },
+    "software_compatibility": {
+      "type": "array",
+      "description": "Array of software compatibility records",
+      "items": {
+        "$ref": "#/definitions/software_record"
+      }
+    },
+    "version_range_examples": {
+      "type": "object",
+      "description": "Examples of version range formats (for documentation)",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "format": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": ["format", "description"]
+          }
+        }
+      }
+    },
+    "status_definitions": {
+      "type": "object",
+      "description": "Definitions of compatibility status values",
+      "properties": {
+        "compatible": {
+          "type": "string"
+        },
+        "compatible_with_notes": {
+          "type": "string"
+        },
+        "incompatible": {
+          "type": "string"
+        },
+        "unknown": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "software_record": {
+      "type": "object",
+      "required": ["name", "compatibility"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Primary name of the software package",
+          "minLength": 1
+        },
+        "aliases": {
+          "type": "array",
+          "description": "Alternative names for the software (for intelligent matching)",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "description": {
+          "type": "string",
+          "description": "Brief description of the software"
+        },
+        "compatibility": {
+          "$ref": "#/definitions/compatibility_info"
+        }
+      }
+    },
+    "compatibility_info": {
+      "type": "object",
+      "required": ["supported_versions"],
+      "properties": {
+        "supported_versions": {
+          "type": "array",
+          "description": "Array of version ranges and their compatibility status",
+          "items": {
+            "$ref": "#/definitions/version_compatibility"
+          }
+        },
+        "minimum_supported_version": {
+          "type": ["string", "null"],
+          "description": "Minimum version that supports Graviton (null if none)"
+        },
+        "recommended_version": {
+          "type": ["string", "null"],
+          "description": "Recommended version for Graviton (null if none)"
+        },
+        "latest_tested_version": {
+          "type": ["string", "null"],
+          "description": "Latest version tested on Graviton"
+        },
+        "migration_notes": {
+          "type": "string",
+          "description": "Notes about migrating to Graviton-compatible versions"
+        },
+        "alternatives": {
+          "type": "array",
+          "description": "Alternative software options if current software is incompatible",
+          "items": {
+            "$ref": "#/definitions/alternative_software"
+          }
+        },
+        "documentation_links": {
+          "type": "array",
+          "description": "Links to relevant documentation",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "version_compatibility": {
+      "type": "object",
+      "required": ["version_range", "status"],
+      "properties": {
+        "version_range": {
+          "type": "string",
+          "description": "Version range specification (e.g., '>=1.0.0', '>=1.0.0,<2.0.0', '*' for any version)",
+          "pattern": "^((>=|<=|>|<|==|!=|~|\\^)?[0-9]+\\.[0-9]+\\.[0-9]+(\\.[0-9]+)*(-(alpha|beta|rc)\\.[0-9]+)?((,\\s*)?(>=|<=|>|<|==|!=|~|\\^)[0-9]+\\.[0-9]+\\.[0-9]+(\\.[0-9]+)*(-(alpha|beta|rc)\\.[0-9]+)?)*|\\*)?$"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["compatible", "compatible_with_notes", "incompatible", "unknown"],
+          "description": "Compatibility status for this version range"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional notes about compatibility for this version range"
+        },
+        "performance_notes": {
+          "type": "string",
+          "description": "Performance-specific notes for this version range"
+        },
+        "upgrade_required": {
+          "type": "boolean",
+          "description": "Whether an upgrade is required for Graviton compatibility"
+        }
+      }
+    },
+    "alternative_software": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the alternative software"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the alternative"
+        },
+        "migration_effort": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "description": "Estimated effort to migrate to this alternative"
+        }
+      }
+    }
+  }
+}

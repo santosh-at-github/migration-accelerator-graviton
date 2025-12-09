@@ -1,0 +1,383 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Graviton OS Compatibility Database",
+  "description": "Operating systems and versions compatible with AWS Graviton processors",
+  "version": "1.0",
+  "last_updated": "2025-01-01",
+  "supported_operating_systems": {
+    "amazon-linux-2023": {
+      "display_name": "Amazon Linux 2023",
+      "graviton_compatible": true,
+      "supported_versions": ["all"],
+      "lse_support": true,
+      "kernel_page_size": "4KB",
+      "metal_support": true,
+      "package_patterns": [".amzn2023", ".al2023"],
+      "vendor_names": ["Amazon Linux"],
+      "purl_distros": ["amzn-2023", "al2023"],
+      "package_types": ["rpm", "linux-kernel-module"],
+      "minimum_kernel_versions": ["all"],
+      "notes": "Pointer Authentication enabled on Graviton3",
+      "eol_date": null
+    },
+    "amazon-linux-2": {
+      "display_name": "Amazon Linux 2",
+      "graviton_compatible": true,
+      "supported_versions": [">=2.26-35"],
+      "lse_support": true,
+      "kernel_page_size": "4KB",
+      "metal_support": true,
+      "package_patterns": [".amzn2", ".amzn2.0"],
+      "vendor_names": ["Amazon Linux"],
+      "purl_distros": ["amzn-2", "amzn2"],
+      "package_types": ["rpm", "linux-kernel-module"],
+      "minimum_kernel_versions": [
+        ">=4.14.273-207.502.amzn2",
+        ">=5.4.186-102.354.amzn2",
+        ">=5.10.106-102.504.amzn2"
+      ],
+      "notes": "End of Life (EOL) scheduled 2025-06-30",
+      "eol_date": "2025-06-30"
+    },
+    "ubuntu": {
+      "display_name": "Ubuntu",
+      "graviton_compatible": true,
+      "supported_versions": [">=18.04"],
+      "lse_support": true,
+      "kernel_page_size": "4KB",
+      "metal_support": true,
+      "package_patterns": [".deb", "ubuntu"],
+      "vendor_names": ["Ubuntu", "Canonical"],
+      "purl_distros": ["ubuntu"],
+      "package_types": ["deb", "linux-kernel-module"],
+      "version_specific": {
+        "24.04": {
+          "codename": "noble",
+          "minimum_kernel_versions": ["all"],
+          "lts": true
+        },
+        "22.04": {
+          "codename": "jammy",
+          "minimum_kernel_versions": ["all"],
+          "lts": true
+        },
+        "20.04": {
+          "codename": "focal",
+          "minimum_kernel_versions": [
+            ">=5.4.0-1047-aws",
+            ">=5.8.0-1034-aws",
+            ">=5.11.0-1009-aws"
+          ],
+          "lts": true
+        },
+        "18.04": {
+          "codename": "bionic",
+          "minimum_kernel_versions": [
+            ">=4.15.0-1101-aws",
+            ">=5.4.0-1047-aws"
+          ],
+          "lts": true,
+          "notes": "needs `apt install libc6-lse`. Free support ended 2023/05/31"
+        }
+      },
+      "notes": "Long Term Support versions recommended"
+    },
+    "ubuntu-pro": {
+      "display_name": "Ubuntu Pro",
+      "graviton_compatible": true,
+      "supported_versions": ["22.04"],
+      "lse_support": true,
+      "kernel_page_size": "4KB",
+      "metal_support": true,
+      "package_patterns": [".deb", "ubuntu"],
+      "vendor_names": ["Ubuntu", "Canonical"],
+      "purl_distros": ["ubuntu"],
+      "package_types": ["deb", "linux-kernel-module"],
+      "notes": "Commercial Ubuntu Pro offering"
+    },
+    "rhel": {
+      "display_name": "Red Hat Enterprise Linux",
+      "graviton_compatible": true,
+      "supported_versions": [">=8.2"],
+      "lse_support": true,
+      "kernel_page_size": "64KB",
+      "metal_support": true,
+      "package_patterns": [".el8", ".el9", ".rhel"],
+      "vendor_names": ["Red Hat", "Red Hat, Inc."],
+      "purl_distros": ["rhel", "redhat"],
+      "package_types": ["rpm", "linux-kernel-module"],
+      "minimum_kernel_versions": [">=4.18.0-305.10"],
+      "notes": "RHEL 7.x supported on A1 instances but not on Graviton2 and later"
+    },
+    "almalinux": {
+      "display_name": "AlmaLinux",
+      "graviton_compatible": true,
+      "supported_versions": [">=8.4"],
+      "lse_support": true,
+      "kernel_page_size": "64KB",
+      "metal_support": true,
+      "package_patterns": [".el8", ".el9", ".alma"],
+      "vendor_names": ["AlmaLinux"],
+      "purl_distros": ["almalinux", "alma"],
+      "package_types": ["rpm", "linux-kernel-module"],
+      "notes": "RHEL-compatible distribution"
+    },
+    "rocky-linux": {
+      "display_name": "Rocky Linux",
+      "graviton_compatible": true,
+      "supported_versions": [">=8.4"],
+      "lse_support": true,
+      "kernel_page_size": "64KB",
+      "metal_support": false,
+      "package_patterns": [".el8", ".el9", ".rocky"],
+      "vendor_names": ["Rocky Linux"],
+      "purl_distros": ["rocky", "rockylinux"],
+      "package_types": ["rpm", "linux-kernel-module"],
+      "notes": "Details to be confirmed once AMI's are available"
+    },
+    "centos": {
+      "display_name": "CentOS",
+      "graviton_compatible": true,
+      "supported_versions": [">=8.2.2004"],
+      "lse_support": false,
+      "kernel_page_size": "64KB",
+      "metal_support": true,
+      "package_patterns": [".el8", ".el9", ".centos"],
+      "vendor_names": ["CentOS"],
+      "purl_distros": ["centos"],
+      "package_types": ["rpm", "linux-kernel-module"],
+      "notes": "CentOS 7.x supported on A1 instances but not on Graviton2 and later"
+    },
+    "centos-stream": {
+      "display_name": "CentOS Stream",
+      "graviton_compatible": true,
+      "supported_versions": ["8"],
+      "lse_support": false,
+      "kernel_page_size": "64KB",
+      "metal_support": false,
+      "package_patterns": [".el8", ".el9", ".centos"],
+      "vendor_names": ["CentOS"],
+      "purl_distros": ["centos-stream"],
+      "package_types": ["rpm", "linux-kernel-module"],
+      "notes": "Details to be confirmed once AMI's are available"
+    },
+    "suse": {
+      "display_name": "SUSE Linux Enterprise Server",
+      "graviton_compatible": true,
+      "supported_versions": [">=15.2"],
+      "lse_support": "planned",
+      "kernel_page_size": "4KB",
+      "metal_support": true,
+      "package_patterns": [".suse", ".sles"],
+      "vendor_names": ["SUSE"],
+      "purl_distros": ["suse", "sles"],
+      "package_types": ["rpm", "linux-kernel-module"],
+      "notes": "LSE support planned"
+    },
+    "debian": {
+      "display_name": "Debian",
+      "graviton_compatible": true,
+      "supported_versions": [">=10"],
+      "lse_support": true,
+      "kernel_page_size": "4KB",
+      "metal_support": true,
+      "package_patterns": [".deb", "debian"],
+      "vendor_names": ["Debian"],
+      "purl_distros": ["debian"],
+      "package_types": ["deb", "linux-kernel-module"],
+      "version_specific": {
+        "12": {
+          "codename": "bookworm",
+          "lse_support": true
+        },
+        "11": {
+          "codename": "bullseye",
+          "lse_support": true
+        },
+        "10": {
+          "codename": "buster",
+          "lse_support": "planned",
+          "notes": "LSE planned for Debian 11, Metal support as of Debian 10.7"
+        }
+      }
+    },
+    "alpine": {
+      "display_name": "Alpine Linux",
+      "graviton_compatible": true,
+      "supported_versions": [">=3.12.7"],
+      "lse_support": true,
+      "kernel_page_size": "4KB",
+      "metal_support": false,
+      "package_patterns": [".alpine", ".apk"],
+      "vendor_names": ["Alpine"],
+      "purl_distros": ["alpine"],
+      "package_types": ["apk", "linux-kernel-module"],
+      "notes": "LSE enablement checked in version 3.14"
+    },
+    "flatcar": {
+      "display_name": "Flatcar Container Linux",
+      "graviton_compatible": true,
+      "supported_versions": [">=3033.2.0"],
+      "lse_support": true,
+      "kernel_page_size": "4KB",
+      "metal_support": true,
+      "package_patterns": [".flatcar"],
+      "vendor_names": ["Flatcar"],
+      "purl_distros": ["flatcar"],
+      "package_types": ["linux-kernel-module"],
+      "notes": "Container-optimized OS"
+    },
+    "freebsd": {
+      "display_name": "FreeBSD",
+      "graviton_compatible": true,
+      "supported_versions": [">=12.1"],
+      "lse_support": false,
+      "kernel_page_size": "4KB",
+      "metal_support": false,
+      "package_patterns": [".freebsd"],
+      "vendor_names": ["FreeBSD"],
+      "purl_distros": ["freebsd"],
+      "package_types": ["freebsd-pkg"],
+      "version_specific": {
+        "14.1": {
+          "lse_support": true,
+          "metal_support": true
+        },
+        "13.0": {
+          "lse_support": true,
+          "metal_support": false
+        },
+        "12.1": {
+          "lse_support": false,
+          "metal_support": false
+        }
+      },
+      "notes": "Device hotplug and API shutdown don't work on versions < 14.1"
+    }
+  },
+  "unsupported_operating_systems": {
+    "windows": {
+      "display_name": "Microsoft Windows",
+      "graviton_compatible": false,
+      "supported_versions": [],
+      "reason": "Windows does not support ARM64 architecture on AWS"
+    },
+    "rhel-7": {
+      "display_name": "Red Hat Enterprise Linux 7.x",
+      "graviton_compatible": false,
+      "supported_versions": [],
+      "reason": "Supported on A1 instances but not on Graviton2 and later based ones"
+    },
+    "centos-7": {
+      "display_name": "CentOS 7.x",
+      "graviton_compatible": false,
+      "supported_versions": [],
+      "reason": "Supported on A1 instances but not on Graviton2 and later based ones"
+    }
+  },
+  "detection_rules": {
+    "package_patterns": {
+      "amazon-linux-2023": [".amzn2023", ".al2023"],
+      "amazon-linux-2": [".amzn2", ".amzn2.0"],
+      "ubuntu": ["ubuntu", ".deb"],
+      "rhel": [".el8", ".el9", ".rhel"],
+      "almalinux": [".el8", ".el9", ".alma"],
+      "rocky-linux": [".el8", ".el9", ".rocky"],
+      "centos": [".el8", ".el9", ".centos"],
+      "suse": [".suse", ".sles"],
+      "debian": [".deb", "debian"],
+      "alpine": [".alpine", ".apk"],
+      "flatcar": [".flatcar"],
+      "freebsd": [".freebsd"]
+    },
+    "system_package_patterns": {
+      "kernel": [
+        ".*\\.ko$",
+        "^kernel-.*",
+        ".*-kernel-.*",
+        "^linux-.*",
+        "^.*-driver$",
+        "^.*-drivers$"
+      ],
+      "system_library": [
+        "^libc$",
+        "^libc[0-9].*",
+        "^libssl$",
+        "^libssl[0-9].*",
+        "^libcrypto$",
+        "^libcrypto[0-9].*",
+        "^libz$",
+        "^libz[0-9].*",
+        "^libm$",
+        "^libm[0-9].*",
+        "^libdl$",
+        "^libdl[0-9].*",
+        "^libpthread$",
+        "^libpthread[0-9].*",
+        "^librt$",
+        "^librt[0-9].*",
+        "^glibc.*",
+        "^systemd$",
+        "^systemd-.*",
+        "^zlib.*"
+      ],
+      "os_utility": [
+        "^(bash|sh|coreutils|util-linux|procps|findutils).*",
+        "^(grep|sed|awk|tar|gzip|gunzip|bzip2|xz).*",
+        "^(mount|umount|fdisk|parted).*",
+        "^(systemctl|service|init).*",
+        "^(ps|top|htop|kill|killall).*"
+      ],
+      "system_package_names": [
+        "^base-files$",
+        "^essential$",
+        "^.*-base$",
+        "^system-.*",
+        "^os-.*"
+      ]
+    },
+    "os_keywords": {
+      "amazon": "amazon-linux-2",
+      "amzn": "amazon-linux-2",
+      "ubuntu": "ubuntu",
+      "debian": "debian",
+      "rhel": "rhel",
+      "red hat": "rhel",
+      "redhat": "rhel",
+      "centos": "centos",
+      "suse": "suse",
+      "alpine": "alpine",
+      "flatcar": "flatcar",
+      "freebsd": "freebsd"
+    },
+    "vendor_patterns": {
+      "Amazon Linux": ["amazon-linux-2", "amazon-linux-2023"],
+      "Ubuntu": ["ubuntu"],
+      "Canonical": ["ubuntu"],
+      "Red Hat": ["rhel"],
+      "AlmaLinux": ["almalinux"],
+      "Rocky Linux": ["rocky-linux"],
+      "CentOS": ["centos", "centos-stream"],
+      "SUSE": ["suse"],
+      "Debian": ["debian"],
+      "Alpine": ["alpine"],
+      "Flatcar": ["flatcar"],
+      "FreeBSD": ["freebsd"]
+    },
+    "purl_distro_patterns": {
+      "amzn-2": "amazon-linux-2",
+      "amzn-2023": "amazon-linux-2023",
+      "ubuntu": "ubuntu",
+      "rhel": "rhel",
+      "almalinux": "almalinux",
+      "rocky": "rocky-linux",
+      "centos": "centos",
+      "centos-stream": "centos-stream",
+      "suse": "suse",
+      "debian": "debian",
+      "alpine": "alpine",
+      "flatcar": "flatcar",
+      "freebsd": "freebsd"
+    }
+  }
+}

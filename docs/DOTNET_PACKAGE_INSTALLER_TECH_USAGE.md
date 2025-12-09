@@ -365,7 +365,7 @@ docker run --platform linux/arm64 mcr.microsoft.com/dotnet/sdk:8.0 \
 3. **Network Stability**: Ensure reliable NuGet connectivity
 4. **Valid Input**: Verify .csproj file format before testing
 
-## Integration with Graviton Validator
+## Integration with Migration Accelerator for Graviton
 
 ### Runtime Analysis Flow
 ```

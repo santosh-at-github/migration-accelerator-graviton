@@ -1,4 +1,4 @@
-# Graviton Validator - AWS Batch Deployment
+# Migration Accelerator for Graviton - AWS Batch Deployment
 
 Event-driven AWS Batch architecture for analyzing SBOM files for AWS Graviton (ARM64) compatibility.
 

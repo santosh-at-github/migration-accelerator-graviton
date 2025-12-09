@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Graviton Compatibility Deny List",
+  "description": "Schema for defining packages that are explicitly denied/unsupported on Graviton",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference"
+    },
+    "deny_list": {
+      "type": "array",
+      "description": "List of packages that are explicitly denied/unsupported",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Package name (case-insensitive)"
+          },
+          "aliases": {
+            "type": "array",
+            "description": "Alternative names for this package",
+            "items": {
+              "type": "string"
+            },
+            "default": []
+          },
+          "reason": {
+            "type": "string",
+            "description": "Reason why this package is denied/unsupported"
+          },
+          "minimum_supported_version": {
+            "type": "string",
+            "description": "Minimum version that would be supported (if available)",
+            "default": null
+          },
+          "recommended_alternative": {
+            "type": "string",
+            "description": "Recommended alternative package",
+            "default": null
+          }
+        },
+        "required": ["name", "reason"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["deny_list"],
+  "additionalProperties": false
+}

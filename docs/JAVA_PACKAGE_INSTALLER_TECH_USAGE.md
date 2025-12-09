@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `java_package_installer.py` script is a standalone Java package compatibility tester designed for ARM64/Graviton compatibility analysis. It has been rewritten to use the main script schema defined in `models.py`, outputting `ComponentResult` objects that are fully compatible with the main graviton validator pipeline.
+The `java_package_installer.py` script is a standalone Java package compatibility tester designed for ARM64/Graviton compatibility analysis. It has been rewritten to use the main script schema defined in `models.py`, outputting `ComponentResult` objects that are fully compatible with the Migration Accelerator for Graviton pipeline.
 
 ## Schema Structure
 
@@ -142,7 +142,7 @@ DEBUG=1 python3 java_package_installer.py pom.xml
 - `-o, --output`: Output JSON file path
 
 ### Integration with Main Script
-The output is now fully compatible with the main graviton validator:
+The output is now fully compatible with the Migration Accelerator for Graviton:
 
 ```python
 from graviton_validator.analysis.java_package_installer import analyze_pom_file
@@ -362,10 +362,10 @@ Errors are classified and stored in component properties:
 
 ## Integration Benefits
 
-- **Schema Compatibility**: Fully compatible with main graviton validator
+- **Schema Compatibility**: Fully compatible with Migration Accelerator for Graviton
 - **Type Safety**: Proper typing with dataclasses and enums
 - **Extensibility**: Easy to extend with additional analysis features
 - **Consistency**: Consistent output format across all runtime analyzers
 - **Maintainability**: Cleaner code structure with proper separation of concerns
 
-This rewritten version maintains all the powerful analysis capabilities while providing a clean, type-safe interface that integrates seamlessly with the main graviton validator pipeline.
+This rewritten version maintains all the powerful analysis capabilities while providing a clean, type-safe interface that integrates seamlessly with the Migration Accelerator for Graviton pipeline.

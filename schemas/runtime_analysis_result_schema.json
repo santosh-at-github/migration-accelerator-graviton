@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Runtime Analysis Result Schema",
+  "description": "Standardized schema for runtime package testing results",
+  "type": "object",
+  "required": ["component", "version", "status"],
+  "properties": {
+    "component": {
+      "type": "string",
+      "description": "Component/package name",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string", 
+      "description": "Tested version"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["compatible", "incompatible", "needs_upgrade", "needs_verification", "unknown"],
+      "description": "Compatibility test result"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Test result details/error messages"
+    },
+    "environment": {
+      "type": "string",
+      "description": "Test environment"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the test was performed"
+    },
+    "native_build_detected": {
+      "type": "string",
+      "enum": ["Yes", "No"],
+      "default": "No",
+      "description": "Whether native compilation was detected"
+    },
+    "fallback_used": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether fallback to latest version was used"
+    },
+    "original_version": {
+      "type": "string",
+      "description": "Original requested version (if fallback was used)"
+    },
+    "test_output": {
+      "type": "string",
+      "description": "Raw test output for debugging"
+    },
+    "install_status": {
+      "type": "string",
+      "enum": ["Success", "Failed"],
+      "description": "Package installation result"
+    },
+    "test_execution_output": {
+      "type": "string",
+      "description": "Test suite execution output"
+    },
+    "error_details": {
+      "type": "string",
+      "description": "Detailed error information"
+    },
+    "error_type": {
+      "type": "string",
+      "enum": ["network", "native_build", "permissions", "dependency", "unknown"],
+      "description": "Error classification"
+    }
+  }
+}

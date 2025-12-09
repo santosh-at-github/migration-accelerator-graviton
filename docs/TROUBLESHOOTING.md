@@ -1,6 +1,6 @@
 # Troubleshooting Guide
 
-This guide helps resolve common issues when using the Graviton Compatibility Validator.
+This guide helps resolve common issues when using the Migration Accelerator for Graviton.
 
 ## Common Error Messages
 

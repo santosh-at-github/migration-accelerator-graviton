@@ -135,4 +135,4 @@ python graviton_validator.py examples/sample_*.json
 
 ---
 
-*These example files serve as both documentation and testing resources for the Graviton Compatibility Validator.*
+*These example files serve as both documentation and testing resources for the Migration Accelerator for Graviton.*

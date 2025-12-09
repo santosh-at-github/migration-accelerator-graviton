@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide explains how to create and maintain knowledge base files for the Graviton Compatibility Validator. The knowledge base contains compatibility information for software packages, helping determine which versions work with AWS Graviton processors.
+This guide explains how to create and maintain knowledge base files for the Migration Accelerator for Graviton. The knowledge base contains compatibility information for software packages, helping determine which versions work with AWS Graviton processors.
 
 ## Knowledge Base Types
 
@@ -383,7 +383,7 @@ See `../schemas/knowledge_base_template.json` for a complete example with all fe
 1. **Check the schema**: Refer to `schemas/knowledge_base_schema.json`
 2. **Review examples**: Use `../schemas/knowledge_base_template.json` as reference
 3. **Validate JSON**: Use online JSON validators
-4. **Test with validator**: Run the Graviton Compatibility Validator with your knowledge base
+4. **Test with validator**: Run the Migration Accelerator for Graviton with your knowledge base
 
 ## Updating Knowledge Bases
 

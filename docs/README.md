@@ -1,6 +1,6 @@
 # Documentation
 
-Complete documentation for the Graviton Compatibility Validator.
+Complete documentation for the Migration Accelerator for Graviton.
 
 ## 🚀 Getting Started
 

@@ -503,7 +503,7 @@ docker run python:3.9-slim file /usr/lib/x86_64-linux-gnu/libc.so.6
 3. **Error Analysis**: Review error_type and error_details for insights
 4. **Version Planning**: Use needs_upgrade results for migration planning
 
-## Integration with Graviton Validator
+## Integration with Migration Accelerator for Graviton
 
 ### Runtime Analysis Flow
 ```

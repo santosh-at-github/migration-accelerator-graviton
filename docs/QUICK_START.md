@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-Get started with Graviton Compatibility Validator in 5 minutes.
+Get started with Migration Accelerator for Graviton in 5 minutes.
 
 ## Choose Your Approach
 

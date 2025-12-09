@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Graviton Validator uses a persistent alias system to handle cases where SBOM component names don't exactly match OS knowledge base package names. This system survives OS knowledge base regeneration.
+The Migration Accelerator for Graviton uses a persistent alias system to handle cases where SBOM component names don't exactly match OS knowledge base package names. This system survives OS knowledge base regeneration.
 
 ## How It Works
 

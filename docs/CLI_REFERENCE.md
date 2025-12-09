@@ -1,6 +1,6 @@
 # CLI Reference Guide
 
-Complete command-line reference for the Graviton Compatibility Validator.
+Complete command-line reference for the Migration Accelerator for Graviton.
 
 ## Table of Contents
 - [Basic Usage](#basic-usage)

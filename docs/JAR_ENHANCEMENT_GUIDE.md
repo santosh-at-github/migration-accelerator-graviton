@@ -4,7 +4,7 @@
 
 ## Overview
 
-The Graviton Validator can analyze Java JAR, WAR, and EAR files to detect components and native libraries that may not be captured in SBOM files. This complements SBOM analysis by providing binary-level inspection.
+The Migration Accelerator for Graviton can analyze Java JAR, WAR, and EAR files to detect components and native libraries that may not be captured in SBOM files. This complements SBOM analysis by providing binary-level inspection.
 
 ## Quick Start
 
