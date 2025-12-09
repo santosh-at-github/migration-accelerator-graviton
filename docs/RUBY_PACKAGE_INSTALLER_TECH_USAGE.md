@@ -294,7 +294,7 @@ DEBUG=1 python ruby_package_installer.py Gemfile
 [2025-10-09 07:45:45] DEBUG: [RUBY_VALIDATOR] Status: compatible (successful install and runtime loading)
 ```
 
-## Integration with Graviton Validator
+## Integration with Migration Accelerator for Graviton
 
 ### Runtime Analysis Flow
 ```

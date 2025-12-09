@@ -1,0 +1,257 @@
+{
+  "$schema": "./knowledge_base_schema.json",
+  "metadata": {
+    "version": "1.0",
+    "description": "Graviton compatibility knowledge base template",
+    "created_date": "2025-01-01",
+    "last_updated": "2025-01-01",
+    "maintainer": "Your Organization",
+    "notes": "This template provides examples of how to structure compatibility information for AWS Graviton processors"
+  },
+  "software_compatibility": [
+    {
+      "name": "nginx",
+      "aliases": ["nginx-core", "nginx-full", "nginx-light"],
+      "description": "High-performance HTTP server and reverse proxy",
+      "compatibility": {
+        "supported_versions": [
+          {
+            "version_range": ">=1.18.0",
+            "status": "compatible",
+            "notes": "Full Graviton support with optimized performance",
+            "performance_notes": "Native ARM64 builds available, excellent performance on Graviton"
+          },
+          {
+            "version_range": ">=1.14.0,<1.18.0",
+            "status": "compatible_with_notes",
+            "notes": "Compatible but performance optimizations available in newer versions",
+            "performance_notes": "Works well but lacks some ARM64-specific optimizations"
+          },
+          {
+            "version_range": "<1.14.0",
+            "status": "incompatible",
+            "notes": "Requires upgrade for Graviton compatibility",
+            "upgrade_required": true
+          }
+        ],
+        "minimum_supported_version": "1.14.0",
+        "recommended_version": "1.20.2",
+        "latest_tested_version": "1.22.1",
+        "migration_notes": "Consider enabling specific Graviton optimizations in configuration. Update to latest stable version for best performance.",
+        "documentation_links": [
+          "https://nginx.org/en/docs/",
+          "https://docs.aws.amazon.com/graviton/latest/devguide/nginx.html"
+        ]
+      }
+    },
+    {
+      "name": "python",
+      "aliases": ["python3", "python3.9", "python3.10", "python3.11"],
+      "description": "Python programming language interpreter",
+      "compatibility": {
+        "supported_versions": [
+          {
+            "version_range": ">=3.8.0",
+            "status": "compatible",
+            "notes": "Full Graviton support with native ARM64 builds",
+            "performance_notes": "Excellent performance on Graviton processors"
+          },
+          {
+            "version_range": ">=3.6.0,<3.8.0",
+            "status": "compatible_with_notes",
+            "notes": "Compatible but newer versions recommended for better performance",
+            "performance_notes": "Good performance but lacks some ARM64 optimizations"
+          },
+          {
+            "version_range": "<3.6.0",
+            "status": "incompatible",
+            "notes": "End of life versions, upgrade required",
+            "upgrade_required": true
+          }
+        ],
+        "minimum_supported_version": "3.6.0",
+        "recommended_version": "3.11.5",
+        "latest_tested_version": "3.11.5",
+        "migration_notes": "Python 3.8+ recommended for optimal Graviton performance. Ensure all dependencies are ARM64 compatible.",
+        "documentation_links": [
+          "https://www.python.org/downloads/",
+          "https://docs.aws.amazon.com/graviton/latest/devguide/python.html"
+        ]
+      }
+    },
+    {
+      "name": "mysql",
+      "aliases": ["mysql-server", "mysql-client", "mariadb"],
+      "description": "MySQL database server",
+      "compatibility": {
+        "supported_versions": [
+          {
+            "version_range": ">=8.0.0",
+            "status": "compatible",
+            "notes": "Full Graviton support with ARM64 optimizations",
+            "performance_notes": "Native ARM64 builds with excellent performance"
+          },
+          {
+            "version_range": ">=5.7.0,<8.0.0",
+            "status": "compatible_with_notes",
+            "notes": "Compatible but upgrade to 8.0+ recommended for better Graviton performance",
+            "performance_notes": "Good performance but lacks ARM64-specific optimizations"
+          },
+          {
+            "version_range": "<5.7.0",
+            "status": "incompatible",
+            "notes": "End of life versions, upgrade required for security and compatibility",
+            "upgrade_required": true
+          }
+        ],
+        "minimum_supported_version": "5.7.0",
+        "recommended_version": "8.0.34",
+        "latest_tested_version": "8.0.34",
+        "migration_notes": "MySQL 8.0+ provides significant performance improvements on Graviton. Plan for upgrade path from 5.7 to 8.0.",
+        "documentation_links": [
+          "https://dev.mysql.com/doc/",
+          "https://docs.aws.amazon.com/graviton/latest/devguide/mysql.html"
+        ]
+      }
+    },
+    {
+      "name": "redis",
+      "aliases": ["redis-server", "redis-cli"],
+      "description": "In-memory data structure store",
+      "compatibility": {
+        "supported_versions": [
+          {
+            "version_range": ">=6.0.0",
+            "status": "compatible",
+            "notes": "Full Graviton support with excellent performance",
+            "performance_notes": "Native ARM64 builds available, optimized for Graviton"
+          },
+          {
+            "version_range": ">=4.0.0,<6.0.0",
+            "status": "compatible_with_notes",
+            "notes": "Compatible but newer versions provide better performance on ARM64",
+            "performance_notes": "Works well but lacks some ARM64 optimizations"
+          },
+          {
+            "version_range": "<4.0.0",
+            "status": "incompatible",
+            "notes": "Very old versions, upgrade strongly recommended",
+            "upgrade_required": true
+          }
+        ],
+        "minimum_supported_version": "4.0.0",
+        "recommended_version": "7.0.12",
+        "latest_tested_version": "7.0.12",
+        "migration_notes": "Redis 6.0+ recommended for optimal Graviton performance. Consider Redis 7.0 for latest features and performance improvements.",
+        "documentation_links": [
+          "https://redis.io/documentation",
+          "https://docs.aws.amazon.com/graviton/latest/devguide/redis.html"
+        ]
+      }
+    },
+    {
+      "name": "nodejs",
+      "aliases": ["node", "node.js", "npm"],
+      "description": "JavaScript runtime built on Chrome's V8 JavaScript engine",
+      "compatibility": {
+        "supported_versions": [
+          {
+            "version_range": ">=14.0.0",
+            "status": "compatible",
+            "notes": "Full Graviton support with native ARM64 builds",
+            "performance_notes": "Excellent performance on Graviton with V8 ARM64 optimizations"
+          },
+          {
+            "version_range": ">=12.0.0,<14.0.0",
+            "status": "compatible_with_notes",
+            "notes": "Compatible but upgrade recommended for better ARM64 support",
+            "performance_notes": "Good performance but newer versions have better ARM64 optimizations"
+          },
+          {
+            "version_range": "<12.0.0",
+            "status": "incompatible",
+            "notes": "End of life versions, upgrade required",
+            "upgrade_required": true
+          }
+        ],
+        "minimum_supported_version": "12.0.0",
+        "recommended_version": "18.17.1",
+        "latest_tested_version": "20.5.1",
+        "migration_notes": "Node.js 14+ recommended for Graviton. LTS versions (16.x, 18.x) provide best stability and performance.",
+        "documentation_links": [
+          "https://nodejs.org/en/docs/",
+          "https://docs.aws.amazon.com/graviton/latest/devguide/nodejs.html"
+        ]
+      }
+    },
+    {
+      "name": "example-incompatible-software",
+      "aliases": ["legacy-app"],
+      "description": "Example of software with no Graviton support",
+      "compatibility": {
+        "supported_versions": [],
+        "minimum_supported_version": null,
+        "recommended_version": null,
+        "latest_tested_version": null,
+        "migration_notes": "This software does not support ARM64/Graviton architecture. Consider alternative solutions or contact vendor for ARM64 support roadmap.",
+        "alternatives": [
+          {
+            "name": "modern-alternative",
+            "description": "A modern alternative with full Graviton support",
+            "migration_effort": "medium"
+          }
+        ],
+        "documentation_links": [
+          "https://example.com/migration-guide"
+        ]
+      }
+    }
+  ],
+  "version_range_examples": {
+    "description": "Examples of supported version range formats",
+    "examples": [
+      {
+        "format": ">=1.0.0",
+        "description": "Greater than or equal to version 1.0.0"
+      },
+      {
+        "format": "<=2.0.0",
+        "description": "Less than or equal to version 2.0.0"
+      },
+      {
+        "format": ">1.0.0,<2.0.0",
+        "description": "Greater than 1.0.0 AND less than 2.0.0"
+      },
+      {
+        "format": ">=1.0.0,<2.0.0",
+        "description": "Greater than or equal to 1.0.0 AND less than 2.0.0"
+      },
+      {
+        "format": "==1.0.0",
+        "description": "Exactly version 1.0.0"
+      },
+      {
+        "format": "!=1.0.0",
+        "description": "Any version except 1.0.0"
+      },
+      {
+        "format": "~1.0.0",
+        "description": "Compatible with 1.0.0 (>=1.0.0, <1.1.0)"
+      },
+      {
+        "format": "^1.0.0",
+        "description": "Compatible with 1.0.0 (>=1.0.0, <2.0.0)"
+      },
+      {
+        "format": "*",
+        "description": "Any version - used when specific version information is not available"
+      }
+    ]
+  },
+  "status_definitions": {
+    "compatible": "Software version is fully compatible with Graviton processors",
+    "compatible_with_notes": "Software version works on Graviton but may have limitations or performance considerations",
+    "incompatible": "Software version is not compatible with Graviton processors",
+    "unknown": "Compatibility status is not known or has not been tested"
+  }
+}

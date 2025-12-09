@@ -1,4 +1,4 @@
-# AWS Graviton Compatibility Validator
+# Migration Accelerator for Graviton
 
 **Automatically analyze SBOM files and dependency manifests for Java, Node.js, Python, .NET, and Ruby applications to determine AWS Graviton (ARM64) compatibility and accelerate your migration to Graviton instances.**
 
@@ -44,6 +44,8 @@ This solution is designed for:
 - **Ruby**: `Gemfile`, `.gemspec`
 
 ## How Does It Work?
+
+![How It Works](images/aws-graviton-validator-architecture-simple.drawio.png)
 
 ### 🔍 **Analysis Process**
 1. **Upload** your SBOM file or dependency manifest

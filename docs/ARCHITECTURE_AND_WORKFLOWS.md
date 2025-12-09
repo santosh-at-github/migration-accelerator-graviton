@@ -1,6 +1,6 @@
 # Architecture and Workflows
 
-Complete technical documentation of the Graviton Compatibility Validator architecture, execution modes, and workflows.
+Complete technical documentation of the Migration Accelerator for Graviton architecture, execution modes, and workflows.
 
 ## Table of Contents
 1. [Tool Overview](#tool-overview)
@@ -29,43 +29,14 @@ Multi-stage SBOM compatibility analyzer for AWS Graviton (ARM64) migration asses
 
 ## Architecture
 
-### High-Level Components
+### Tool Architecture & Flow
 
-```
-                    ┌─────────────────────────┐
-                    │     SBOM Input File     │
-                    │  (CycloneDX/SPDX/Syft)  │
-                    └───────────┬─────────────┘
-                                │
-                                ▼
-                    ┌─────────────────────────┐
-                    │     SBOM Parser         │
-                    │  - Format Detection     │
-                    │  - Component Extraction │
-                    └───────────┬─────────────┘
-                                │
-                                ▼
-                    ┌─────────────────────────┐
-                    │  Compatibility Analyzer │
-                    │  - Knowledge Base Match │
-                    │  - Deny List Check      │
-                    │  - Version Validation   │
-                    └───────────┬─────────────┘
-                                │
-                                ▼
-                    ┌─────────────────────────┐
-                    │   Runtime Analyzer      │
-                    │  - Package Registry     │
-                    │  - Installation Test    │
-                    │  - Native Code Check    │
-                    └───────────┬─────────────┘
-                                │
-                                ▼
-                    ┌─────────────────────────┐
-                    │    Report Generator     │
-                    │  (Text/JSON/Excel/MD)   │
-                    └─────────────────────────┘
-```
+![Tool Architecture Flow](../images/tool-architecture-flow.drawio.png)
+
+The diagram above shows the internal architecture with three main layers:
+1. **Input Layer**: SBOM parsing and component extraction
+2. **Analysis Layer**: Knowledge base matching and runtime testing
+3. **Reporting Layer**: Multi-format report generation
 
 ### Core Modules
 

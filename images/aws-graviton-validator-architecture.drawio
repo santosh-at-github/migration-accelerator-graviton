@@ -1,0 +1,244 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram name="Architecture" id="arch">
+    <mxGraphModel dx="1185" dy="732" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;font style=&quot;font-size: 36px;&quot;&gt;AWS Graviton Migration Acclerator - Architecture&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="550" y="120" width="600" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s3_input" value="S3 Bucket" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontSize=17;fontStyle=1;shape=mxgraph.aws4.bucket;" parent="1" vertex="1">
+          <mxGeometry x="570" y="320" width="80" height="83" as="geometry" />
+        </mxCell>
+        <mxCell id="eventbridge" value="EventBridge&#xa;(S3 Object Created)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontSize=17;fontStyle=1;shape=mxgraph.aws4.eventbridge;" parent="1" vertex="1">
+          <mxGeometry x="800" y="321.5" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="C3uBiKQtISg7PUH34u4B-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" parent="1" source="lambda" target="dashboard" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1260" y="363" />
+              <mxPoint x="1260" y="1380" />
+              <mxPoint x="340" y="1380" />
+              <mxPoint x="340" y="1295" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lambda" value="Lambda&#xa;(Batch Job Submitter)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontSize=17;fontStyle=1;shape=mxgraph.aws4.lambda_function;" parent="1" vertex="1">
+          <mxGeometry x="1033" y="323" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="batch" value="AWS Batch&#xa;Job Queue" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontSize=17;fontStyle=1;shape=mxgraph.aws4.batch;" parent="1" vertex="1">
+          <mxGeometry x="1130" y="610" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ecs_cluster" value="&lt;font&gt;ECS Cluster (Managed by AWS Batch)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4E6;strokeColor=#FF9900;strokeWidth=3;verticalAlign=top;fontSize=17;fontStyle=1;fontColor=#232F3E;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="350" y="530" width="650" height="700" as="geometry" />
+        </mxCell>
+        <mxCell id="ec2_container" value="&lt;font&gt;EC2 Instance (Graviton)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F3FF;strokeColor=#0066CC;strokeWidth=2;verticalAlign=top;fontSize=17;fontStyle=1;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="380" y="570" width="610" height="650" as="geometry" />
+        </mxCell>
+        <mxCell id="ecs_task" value="&lt;font&gt;AWS Batch Job (ECS Task - Container)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;verticalAlign=top;fontSize=17;fontStyle=1;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="418.84" y="610" width="560" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="container_image" value="&lt;font&gt;Container Image: amazonlinux:2023&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=17;fontStyle=2;" parent="1" vertex="1">
+          <mxGeometry x="455" y="660" width="480" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tool_label" value="graviton_validator.py Components:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=17;fontStyle=1;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="460" y="710" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="parser" value="&lt;font&gt;SBOM Parser&lt;br&gt;CycloneDX/SPDX/Syft&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=17;" parent="1" vertex="1">
+          <mxGeometry x="460" y="750" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="analyzer" value="&lt;font&gt;Compatibility Analyzer&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=17;" parent="1" vertex="1">
+          <mxGeometry x="460" y="860" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="reporter" value="&lt;font&gt;Report Generator&lt;br&gt;JSON / Excel / Markdown&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=17;" parent="1" vertex="1">
+          <mxGeometry x="470" y="1110" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kb_group" value="Knowledge Bases" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;dashed=1;verticalAlign=top;fontSize=17;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="825" y="828.75" width="155" height="122.5" as="geometry" />
+        </mxCell>
+        <mxCell id="logs" value="CloudWatch Logs" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontSize=14;shape=mxgraph.aws4.cloudwatch;" parent="1" vertex="1">
+          <mxGeometry x="370" y="1260" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dashboard" value="CloudWatch-Dashboard" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontSize=14;shape=mxgraph.aws4.cloudwatch;" parent="1" vertex="1">
+          <mxGeometry x="220" y="1260" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" value="&lt;font&gt;1. Upload SBOM&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=3;strokeColor=#0066CC;fontSize=17;fontStyle=1;labelBackgroundColor=#ffffff;" parent="1" source="user" target="s3_input" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" value="&lt;font&gt;2. Event&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=3;strokeColor=#0066CC;fontSize=17;fontStyle=1;labelBackgroundColor=#ffffff;" parent="1" source="s3_input" target="eventbridge" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" value="&lt;font&gt;3. Invoke&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=3;strokeColor=#0066CC;fontSize=17;fontStyle=1;labelBackgroundColor=#ffffff;" parent="1" source="eventbridge" target="lambda" edge="1">
+          <mxGeometry x="0.0106" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a4" value="&lt;font&gt;4. Submit Job&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=3;strokeColor=#0066CC;fontSize=17;fontStyle=1;labelBackgroundColor=#ffffff;" parent="1" source="lambda" target="batch" edge="1">
+          <mxGeometry x="0.4046" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1170" y="363" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a5" value="&lt;font&gt;5. Launch ECS Task on EC2&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=3;strokeColor=#0066CC;fontSize=17;fontStyle=1;labelBackgroundColor=#ffffff;" parent="1" source="batch" target="ecs_task" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1110" y="650" />
+              <mxPoint x="1110" y="870" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a7" value="&lt;font&gt;6. Download Code&lt;br&gt;7. Download SBOM&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#82B366;fontSize=17;fontStyle=1;labelBackgroundColor=#ffffff;startArrow=classic;startFill=1;endArrow=none;endFill=0;" parent="1" source="ecs_task" target="s3_input" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="260" y="880" />
+              <mxPoint x="260" y="490" />
+              <mxPoint x="610" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a9" value="&lt;font&gt;8. Parse SBOM&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#D6B656;fontSize=17;fontStyle=1;labelBackgroundColor=none;" parent="1" source="parser" target="analyzer" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a10" value="9. Query&lt;div&gt;KB&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#D6B656;fontSize=17;fontStyle=1;labelBackgroundColor=none;" parent="1" source="analyzer" target="kb_group" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a11" value="10. Runtime Tests" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#D6B656;fontSize=17;fontStyle=1;labelBackgroundColor=none;" parent="1" source="analyzer" target="runtime" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a13" value="11. Generate Report" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#D6B656;fontSize=17;fontStyle=1;labelBackgroundColor=none;" parent="1" source="runtime" target="reporter" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a14" value="&lt;font&gt;12. Upload Results&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=3;strokeColor=#CC0000;fontSize=17;fontStyle=1;labelBackgroundColor=#ffffff;" parent="1" source="reporter" target="s3_input" edge="1">
+          <mxGeometry x="0.0002" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1300" y="1140" />
+              <mxPoint x="1300" y="270" />
+              <mxPoint x="610" y="270" />
+            </Array>
+            <mxPoint x="1130" y="1050" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a15" value="&lt;font&gt;13. Download Reports&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=3;strokeColor=#CC0000;fontSize=17;fontStyle=1;labelBackgroundColor=#ffffff;" parent="1" source="s3_input" target="user" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="361" />
+              <mxPoint x="540" y="280" />
+              <mxPoint x="220" y="280" />
+            </Array>
+            <mxPoint x="710.0000000000002" y="1597" as="sourcePoint" />
+            <mxPoint x="170" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a16" value="&lt;font&gt;Logs&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1;strokeColor=#9673A6;fontSize=14;labelBackgroundColor=#ffffff;dashed=1;" parent="1" source="ecs_task" target="logs" edge="1">
+          <mxGeometry x="-0.7064" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="695" y="1295" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="C3uBiKQtISg7PUH34u4B-4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;dashed=1;dashPattern=8 4 1 4;fontSize=17;" parent="1" vertex="1">
+          <mxGeometry x="440" y="959.25" width="340" height="97.5" as="geometry" />
+        </mxCell>
+        <mxCell id="C3uBiKQtISg7PUH34u4B-8" value="OS-specific KB" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=17;" parent="1" vertex="1">
+          <mxGeometry x="845" y="856.25" width="125" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="C3uBiKQtISg7PUH34u4B-9" value="Runtime KB" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=17;" parent="1" vertex="1">
+          <mxGeometry x="850" y="886.25" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="C3uBiKQtISg7PUH34u4B-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1;strokeColor=#9673A6;fontSize=10;labelBackgroundColor=#ffffff;dashed=1;" parent="1" target="dashboard" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1260" y="650" />
+              <mxPoint x="1260" y="1380" />
+              <mxPoint x="340" y="1380" />
+              <mxPoint x="340" y="1295" />
+            </Array>
+            <mxPoint x="1215" y="650" as="sourcePoint" />
+            <mxPoint x="124.99999999999989" y="1345.9425791357435" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="C3uBiKQtISg7PUH34u4B-21" value="&lt;font&gt;Metrics&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;" parent="C3uBiKQtISg7PUH34u4B-13" vertex="1" connectable="0">
+          <mxGeometry x="-0.0291" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="C3uBiKQtISg7PUH34u4B-10" value="Custom KB" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=17;" parent="1" vertex="1">
+          <mxGeometry x="850" y="916.25" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="C3uBiKQtISg7PUH34u4B-14" value="" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=17;image=img/lib/mscae/Docker.svg;" parent="1" vertex="1">
+          <mxGeometry x="422" y="938.25" width="48.78" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="user" value="User/Developer" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontSize=17;fontStyle=1;shape=mxgraph.aws4.user;" parent="1" vertex="1">
+          <mxGeometry x="180" y="323" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="C3uBiKQtISg7PUH34u4B-23" value="" style="group;fontSize=17;" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="1360" y="810" width="240" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" value="Flow Legend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;verticalAlign=top;fontSize=17;fontStyle=1;" parent="C3uBiKQtISg7PUH34u4B-23" vertex="1">
+          <mxGeometry width="240" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="l1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=3;strokeColor=#0066CC;fontSize=17;" parent="C3uBiKQtISg7PUH34u4B-23" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="24" y="40" as="sourcePoint" />
+            <mxPoint x="96" y="40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l1t" value="Main Flow" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=17;" parent="C3uBiKQtISg7PUH34u4B-23" vertex="1">
+          <mxGeometry x="108.00000000000001" y="30" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="l2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#82B366;fontSize=17;" parent="C3uBiKQtISg7PUH34u4B-23" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="24" y="70" as="sourcePoint" />
+            <mxPoint x="96" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l2t" value="EC2 Operations" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=17;" parent="C3uBiKQtISg7PUH34u4B-23" vertex="1">
+          <mxGeometry x="108.00000000000001" y="60" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="l3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#D6B656;fontSize=17;" parent="C3uBiKQtISg7PUH34u4B-23" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="24" y="100" as="sourcePoint" />
+            <mxPoint x="96" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l3t" value="Analysis Flow" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=17;" parent="C3uBiKQtISg7PUH34u4B-23" vertex="1">
+          <mxGeometry x="108.00000000000001" y="90" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="l4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=3;strokeColor=#CC0000;fontSize=17;" parent="C3uBiKQtISg7PUH34u4B-23" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="24" y="130" as="sourcePoint" />
+            <mxPoint x="96" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l4t" value="Output Flow" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=17;" parent="C3uBiKQtISg7PUH34u4B-23" vertex="1">
+          <mxGeometry x="108.00000000000001" y="120" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="l5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1;strokeColor=#9673A6;dashed=1;fontSize=17;" parent="C3uBiKQtISg7PUH34u4B-23" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="24" y="160" as="sourcePoint" />
+            <mxPoint x="96" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l5t" value="Monitoring" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=17;" parent="C3uBiKQtISg7PUH34u4B-23" vertex="1">
+          <mxGeometry x="108.00000000000001" y="150" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="C3uBiKQtISg7PUH34u4B-25" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="1360" y="260" width="240" height="283" as="geometry" />
+        </mxCell>
+        <mxCell id="C3uBiKQtISg7PUH34u4B-24" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="C3uBiKQtISg7PUH34u4B-25" vertex="1">
+          <mxGeometry width="240" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="C3uBiKQtISg7PUH34u4B-6" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(35, 47, 62); font-weight: 700; text-wrap-mode: nowrap; background-color: transparent;&quot;&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;S3 Bucket URIs&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(35, 47, 62); font-weight: 700; text-wrap-mode: nowrap; background-color: transparent;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Input URI&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;ul style=&quot;padding-left: 20px; margin-top: 5px;&quot;&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: rgb(35, 47, 62); font-weight: 700; text-wrap-mode: nowrap;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;input/individual/&lt;/font&gt;&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: rgb(35, 47, 62); font-weight: 700; text-wrap-mode: nowrap;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;input/batch/&lt;/font&gt;&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;text-align: left; padding: 0px; margin: 0px; color: rgb(35, 47, 62);&quot;&gt;&lt;font color=&quot;#232f3e&quot; style=&quot;font-size: 18px;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;b&gt;Output URI&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; padding: 0px; margin: 0px; color: rgb(35, 47, 62);&quot;&gt;&lt;ul style=&quot;padding-left: 20px; margin-top: 5px;&quot;&gt;&lt;li&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;font color=&quot;#232f3e&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;b&gt;/output/&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;span style=&quot;color: rgb(35, 47, 62); font-weight: 700; text-wrap-mode: nowrap; background-color: transparent;&quot;&gt;individual/&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(35, 47, 62); font-weight: 700; text-wrap-mode: nowrap; background-color: transparent;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;/output/batch/&lt;/font&gt;&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;font color=&quot;#232f3e&quot; style=&quot;font-size: 18px;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;b&gt;Code URI&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; padding: 0px; margin: 0px; color: rgb(35, 47, 62);&quot;&gt;&lt;ul style=&quot;padding-left: 20px; margin-top: 5px;&quot;&gt;&lt;li&gt;&lt;font color=&quot;#232f3e&quot; style=&quot;font-size: 18px;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;b style=&quot;&quot;&gt;/code/&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="C3uBiKQtISg7PUH34u4B-25" vertex="1">
+          <mxGeometry x="15" y="10" width="210" height="273" as="geometry" />
+        </mxCell>
+        <mxCell id="runtime" value="&lt;font&gt;Runtime Tester&lt;br&gt;Python / Node.js / Java / .NET / Ruby&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=17;" parent="1" vertex="1">
+          <mxGeometry x="460" y="978" width="310" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

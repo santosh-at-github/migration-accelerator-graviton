@@ -1,0 +1,121 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram name="Simple Architecture" id="simple">
+    <mxGraphModel dx="1720" dy="1331" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="AWS Graviton Migration Acclerator - How It Works" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=28;fontStyle=1;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="360" y="40" width="800" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="step1_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5FF;strokeColor=#0066CC;strokeWidth=3;" parent="1" vertex="1">
+          <mxGeometry x="60" y="200" width="300" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="step1_num" value="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#0066CC;strokeColor=none;fontColor=#FFFFFF;fontSize=32;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="220" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="step1_title" value="Upload Your SBOM" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=22;fontStyle=1;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="80" y="290" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="step1_desc" value="Upload your application&#39;s&lt;br&gt;Software Bill of Materials&lt;br&gt;(SBOM) file to S3" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=18;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="80" y="325" width="260" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="step1_icon" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.bucket;" parent="1" vertex="1">
+          <mxGeometry x="260" y="220" width="60" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="step2_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4E6;strokeColor=#FF9900;strokeWidth=3;" parent="1" vertex="1">
+          <mxGeometry x="460" y="200" width="300" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="step2_num" value="2" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FF9900;strokeColor=none;fontColor=#FFFFFF;fontSize=32;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="480" y="220" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="step2_title" value="Automatic Processing" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=22;fontStyle=1;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="480" y="290" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="step2_desc" value="AWS automatically triggers&lt;br&gt;analysis on ARM64 servers&lt;br&gt;(no manual intervention)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=18;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="480" y="325" width="260" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="step2_icon" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.batch;" parent="1" vertex="1">
+          <mxGeometry x="660" y="220" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="step3_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;strokeWidth=3;" parent="1" vertex="1">
+          <mxGeometry x="860" y="200" width="300" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="step3_num" value="3" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#4CAF50;strokeColor=none;fontColor=#FFFFFF;fontSize=32;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="880" y="220" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="step3_title" value="Compatibility Check" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=22;fontStyle=1;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="880" y="290" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="step3_desc" value="Analyzes each component&lt;br&gt;for ARM64 compatibility&lt;br&gt;and tests runtime dependencies" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=18;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="880" y="325" width="260" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="step3_icon" value="✓" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#4CAF50;strokeColor=none;fontColor=#FFFFFF;fontSize=36;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="1060" y="220" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="step4_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#9C27B0;strokeWidth=3;" parent="1" vertex="1">
+          <mxGeometry x="1260" y="200" width="300" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="step4_num" value="4" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#9C27B0;strokeColor=none;fontColor=#FFFFFF;fontSize=32;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="1280" y="220" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="step4_title" value="Get Your Report" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=22;fontStyle=1;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="1280" y="290" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="step4_desc" value="Download detailed reports&lt;br&gt;in Excel orJSON format" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=18;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="1280" y="325" width="260" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="step4_icon" value="📊" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=48;" parent="1" vertex="1">
+          <mxGeometry x="1460" y="220" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=4;strokeColor=#0066CC;endArrow=block;endFill=1;endSize=12;fontSize=22;" parent="1" source="step1_box" target="step2_box" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=4;strokeColor=#FF9900;endArrow=block;endFill=1;endSize=12;fontSize=22;" parent="1" source="step2_box" target="step3_box" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=4;strokeColor=#4CAF50;endArrow=block;endFill=1;endSize=12;fontSize=22;" parent="1" source="step3_box" target="step4_box" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="results_title" value="&lt;font style=&quot;font-size: 26px;&quot;&gt;What You Get:&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="60" y="500" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="result1" value="✅  Compatible Components" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=20;fontColor=#4CAF50;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="560" width="400" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="result1_desc" value="Ready to migrate to Graviton with confidence" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="80" y="590" width="400" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="result2" value="⚠️  Components Needing Updates" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=20;fontColor=#FF9800;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="560" y="560" width="400" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="result2_desc" value="Specific version recommendations provided" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="560" y="590" width="400" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="result3" value="❌  Incompatible Components" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=20;fontColor=#F44336;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="1040" y="560" width="400" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="result3_desc" value="Identify blockers before migration" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="1040" y="590" width="400" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="benefits_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#FBC02D;strokeWidth=2;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="680" width="1490" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="benefits_title" value="&lt;font style=&quot;font-size: 26px;&quot;&gt;Why Use This Tool?&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=22;fontStyle=1;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="600" y="694" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="benefit1" value="🔍 Analyze dependencies quickly" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontColor=#232F3E;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="745" width="290" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="benefit2" value="📋 Create migration plan faster" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontColor=#232F3E;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="440" y="745" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="benefit3" value="⚡ Get up-to 40% better price-performance sooner" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontColor=#232F3E;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="825" y="745" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="benefit4" value="💰 Start saving costs earlier" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontColor=#232F3E;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="1300" y="745" width="230" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

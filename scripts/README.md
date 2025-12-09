@@ -1,6 +1,6 @@
 # Helper Scripts
 
-Utility scripts for maintaining knowledge bases used by the Graviton Compatibility Validator.
+Utility scripts for maintaining knowledge bases used by the Migration Accelerator for Graviton.
 
 ## Scripts Overview
 

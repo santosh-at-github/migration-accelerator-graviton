@@ -1,4 +1,4 @@
-# AWS Graviton Validator - Deployed Architecture
+# Migration Accelerator for Graviton - Deployed Architecture
 
 **Account:** prushok+graviton-Admin  
 **Region:** us-east-1  
@@ -7,7 +7,11 @@
 
 ## Architecture Overview
 
-This document describes the actual deployed infrastructure for the Graviton Validator solution in your AWS account.
+This document describes the actual deployed infrastructure for the Migration Accelerator for Graviton solution in your AWS account.
+
+![AWS Deployment Architecture](../images/aws-graviton-validator-architecture.drawio.png)
+
+### Deployed Resources
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
